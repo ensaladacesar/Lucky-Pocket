@@ -6,7 +6,7 @@
 	
 	<ion-content>
 	
-		<form (ngSubmit)="signup()" [formGroup]="form">
+		<form (ngSubmit)="signup()" [formGroup]="loginForm">
 			<ion-list inset>
 	
 				<ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched']) }">
@@ -29,7 +29,7 @@
 			<div padding-horizontal>
 				<div class="form-error">{{signupError}}</div>
 	
-				<button ion-button full type="submit" [disabled]="!form.valid">Sign up</button>
+				<button ion-button full type="submit" [disabled]="!loginForm.valid">Sign up</button>
 			</div>
 		</form>
 	</ion-content>
