@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController, IonicPage } from 'ionic-angular';
 import { HomePage } from '../home/home.page';
+import { SignupPage } from '../signup/signup';
 import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
@@ -41,5 +42,26 @@ export class LoginPage {
 				() => this.navCtrl.setRoot(HomePage),
 				error => this.loginError = error.message
 			);
+	}
+
+	signup() {
+		this.navCtrl.push(SignupPage);
+	}
+
+	loginWithFacebook(): void {
+		this.auth.loginWithFacebook()
+		.subscribe(data => {
+      this.navCtrl.setRoot(HomePage);
+    }, error=>{
+      console.log(error);
+    });
+  }
+
+	loginWithGoogle() {
+		this.auth.signInWithGoogle()
+		  .then(
+			() => this.navCtrl.setRoot(HomePage),
+			error => console.log(error.message)
+		  );
 	}
 }

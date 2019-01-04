@@ -42,13 +42,41 @@ export class MyApp {
 
 		
 	}
-
 	initializeApp() {
-		this.rootPage = LoginPage;
+		this.platform.ready().then(() => {
+		  this.statusBar.styleDefault();
+		});
+	  
+		this.auth.afAuth.authState
+		  .subscribe(
+			user => {
+			  if (user) {
+				this.rootPage = HomePage;
+			  } else {
+				this.rootPage = LoginPage;
+			  }
+			},
+			() => {
+			  this.rootPage = LoginPage;
+			}
+		  );
 	}
+	
 
 	openPage(page) {
 		this.menu.close();
 		this.nav.setRoot(page.component);
+	}
+
+	login() {
+		this.menu.close();
+		this.auth.signOut();
+		this.nav.setRoot(LoginPage);
+	}
+
+	logout() {
+		this.menu.close();
+		this.auth.signOut();
+		this.nav.setRoot(HomePage);
 	}
 }
