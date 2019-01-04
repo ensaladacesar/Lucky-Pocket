@@ -52,9 +52,8 @@ export class LoginPage {
 		this.auth.loginWithFacebook()
 		.subscribe(data => {
       this.navCtrl.setRoot(HomePage);
-    }, error=>{
-      console.log(error);
-    });
+    }, error => console.log(error.message)
+    );
   }
 
 	loginWithGoogle() {

@@ -10,7 +10,7 @@ import {Platform} from 'ionic-angular';
 
 @Injectable()
 export class AuthService {
-	private user: firebase.User;
+	public user: firebase.User;
 
 	constructor(public afAuth: AngularFireAuth, public facebook: Facebook, private platform: Platform) {
 		afAuth.authState.subscribe(user => {
@@ -48,29 +48,30 @@ export class AuthService {
 	loginWithFacebook() {
 		return Observable.create(observer => {
 		  if (this.platform.is('cordova')) {
-			this.facebook.login(['email', 'public_profile']).then(res => {
-			  const facebookCredential = auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
-			  this.afAuth.auth.signInWithCredential(facebookCredential).then(user => {
-				observer.next(user);
-			  }).catch(error => {
-				observer.error(error);
-			  });
-			}).catch((error) => {
-			  observer.error(error);
-			});
-		  } else {
-			this.afAuth.auth
-			  .signInWithPopup(new auth.FacebookAuthProvider())
-			  .then((res) => {
-				observer.next(res);
-			  }).catch(error => {
-			  observer.error(error);
-			});
+				this.facebook.login(['email', 'public_profile']).then(res => {
+					const facebookCredential = auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+					this.afAuth.auth.signInWithCredential(facebookCredential).then(user => {
+					observer.next(user);
+					console.log(user);
+					}).catch(error => {
+					observer.error(error);
+					});
+				}).catch((error) => {
+					observer.error(error);
+				});
+			} else {
+				this.afAuth.auth
+					.signInWithPopup(new auth.FacebookAuthProvider())
+					.then((res) => {
+					observer.next(res);
+					}).catch(error => {
+					observer.error(error);
+				});
 		  }
 		});
-	  }
+	}
 
-	private oauthSignIn(provider: AuthProvider) {
+	private oauthSignIn(provider: AuthProvider): Promise<any> {
 		if (!(<any>window).cordova) {
 			return this.afAuth.auth.signInWithPopup(provider);
 		} else {
@@ -79,7 +80,7 @@ export class AuthService {
 				return this.afAuth.auth.getRedirectResult().then( result => {
 					// This gives you a Google Access Token.
 					// You can use it to access the Google API.
-					let token = result.credential.accessToken;
+					let token = result.credential;
 					// The signed-in user info.
 					let user = result.user;
 					console.log(token, user);

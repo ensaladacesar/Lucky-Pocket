@@ -11,6 +11,7 @@ import { CallService } from '../../services/call.service';
 import { MapsService } from '../../services/maps.service';
 import { InAppBrowserService } from '../../services/in-app-browser.service';
 import { data } from './home-data';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
 	templateUrl: 'home.html',
@@ -26,10 +27,17 @@ export class HomePage {
 		private callService: CallService,
 		private mapsService: MapsService,
 		private browserService: InAppBrowserService,
+		private auth: AuthService,
 		nav: Nav
 	) {
 		this.nav = nav;
 		this.initTiles();
+		if (auth.authenticated) {
+			if(auth.facebook){
+				console.log('facebook', auth.user);
+			}
+			console.log(auth);
+		}
 	}
 
 	public navigateTo(tile) {
