@@ -1,6 +1,8 @@
 {
-  "name": "supermodular2",
-  "integrations": {},
-  "type": "ionic-angular",
-  "id": "51793f4b"
+  "name": "ionic4-angular7-lckpckt",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
 }
+
