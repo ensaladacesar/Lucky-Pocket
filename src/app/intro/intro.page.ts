@@ -9,6 +9,10 @@ export class IntroPage implements OnInit {
 
   constructor() { }
 
+  slideOpts = {
+    effect: 'flip'
+  };
+  
   ngOnInit() {
   }
 

@@ -2,7 +2,7 @@
   "cordova-plugin-facebook4": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-facebook4"
+      "id": "cordova-plugin-facebook4@4.2.0"
     },
     "is_top_level": true,
     "variables": {
@@ -14,6 +14,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-nativestorage"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-sqlite-storage": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-sqlite-storage"
     },
     "is_top_level": true,
     "variables": {}

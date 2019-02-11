@@ -82,9 +82,10 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
+    <plugin name="cordova-sqlite-storage" spec="3.0.0" />
     <plugin name="cordova-plugin-facebook4" spec="4.2.0">
         <variable name="APP_ID" value="382437569196107" />
         <variable name="APP_NAME" value="Lucky Pocket" />
     </plugin>
-    <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
 </widget>
