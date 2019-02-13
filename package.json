@@ -31,7 +31,9 @@
     "cordova-plugin-nativestorage": "2.3.2",
     "cordova-sqlite-storage": "3.0.0",
     "core-js": "^2.5.4",
-    "rxjs": "~6.3.3",
+    "ionic-angular": "^3.9.3",
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.4.0",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
