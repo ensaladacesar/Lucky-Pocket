@@ -15,4 +15,3 @@ import { ProfilePage } from './profile.page';
   declarations: [ProfilePage]
 })
 export class ProfilePageModule {}
-
