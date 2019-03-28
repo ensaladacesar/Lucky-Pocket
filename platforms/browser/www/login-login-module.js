@@ -165,19 +165,21 @@ var LoginPage = /** @class */ (function () {
                         this.presentLoading(loading);
                         permissions = new Array();
                         //the permissions your facebook app needs from the user
-                        permissions = ["public_profile", "email"];
+                        permissions = ["public_profile", "email", "user_birthday"];
                         this.fb.login(permissions)
                             .then(function (response) {
                             var userId = response.authResponse.userID;
+                            console.log(response);
                             //Getting name and gender properties
-                            _this.fb.api("/me?fields=name,email", permissions)
+                            _this.fb.api("/me?fields=name,email,birthday", permissions)
                                 .then(function (user) {
                                 user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
                                 //now we have the users info, let's save it in the NativeStorage
                                 _this.nativeStorage.setItem('facebook_user', {
                                     name: user.name,
                                     email: user.email,
-                                    picture: user.picture
+                                    picture: user.picture,
+                                    birthday: user.birthday
                                 })
                                     .then(function () {
                                     //this.router.navigate(["/tabs/profile"]);

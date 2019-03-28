@@ -25,57 +25,58 @@ export class LoginPage implements OnInit {
   }
 
   async doFbLogin(){
-		const loading = await this.loadingController.create({
-			message: 'Please wait...'
-		});
-		this.presentLoading(loading);
-		let permissions = new Array<string>();
+	const loading = await this.loadingController.create({
+		message: 'Please wait...'
+	});
+	this.presentLoading(loading);
+	let permissions = new Array<string>();
 
-		//the permissions your facebook app needs from the user
-    permissions = ["public_profile", "email"];
+	//the permissions your facebook app needs from the user
+	permissions = ["public_profile", "email", "user_birthday"];
 
-		this.fb.login(permissions)
-		.then(response =>{
-			let userId = response.authResponse.userID;
-
-			//Getting name and gender properties
-			this.fb.api("/me?fields=name,email", permissions)
-			.then(user =>{
-				user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
-				//now we have the users info, let's save it in the NativeStorage
-				this.nativeStorage.setItem('facebook_user',
-				{
-					name: user.name,
-					email: user.email,
-					picture: user.picture
-				})
-				.then(() =>{
-					//this.router.navigate(["/tabs/profile"]);
-					this.router.navigateByUrl('/tabs');
-
-					loading.dismiss();
-				}, error =>{
-					console.log(error);
-					loading.dismiss();
-				})
+	this.fb.login(permissions)
+	.then(response =>{
+		let userId = response.authResponse.userID;
+		console.log(response);
+		//Getting name and gender properties
+		this.fb.api("/me?fields=name,email,birthday", permissions)
+		.then(user =>{
+			user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
+			//now we have the users info, let's save it in the NativeStorage
+			this.nativeStorage.setItem('facebook_user',
+			{
+				name: user.name,
+				email: user.email,
+				picture: user.picture,
+				birthday: user.birthday
 			})
-		}, error =>{
-			console.log(error);
-			loading.dismiss();
+			.then(() =>{
+				//this.router.navigate(["/tabs/profile"]);
+				this.router.navigateByUrl('/tabs');
+
+				loading.dismiss();
+			}, error =>{
+				console.log(error);
+				loading.dismiss();
+			})
+		})
+	}, error =>{
+		console.log(error);
+		loading.dismiss();
 		});
 	}
 
-  async presentLoading(loading) {
+	async presentLoading(loading) {
 		return await loading.present();
-  }
+	}
   
   doFbLogout(){
-		this.fb.logout()
-		.then(res =>{
-			//user logged out so we will remove him from the NativeStorage
-			this.nativeStorage.remove('facebook_user');
-			this.router.navigate(["/login"]);
-		}, error =>{
+	this.fb.logout()
+	.then(res =>{
+		//user logged out so we will remove him from the NativeStorage
+		this.nativeStorage.remove('facebook_user');
+		this.router.navigate(["/login"]);
+	}, error =>{
 			console.log(error);
 		});
 	}

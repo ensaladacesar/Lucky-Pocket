@@ -56,7 +56,7 @@ var ProfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Tab Two\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content></ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Tab Two\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <button (click)=\"doFbLogout()\" >\n    Today\n</button>\n</ion-content>\n"
 
 /***/ }),
 
@@ -82,22 +82,55 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePage", function() { return ProfilePage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/facebook/ngx */ "./node_modules/@ionic-native/facebook/ngx/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
 
 var ProfilePage = /** @class */ (function () {
-    function ProfilePage() {
+    function ProfilePage(nativeStorage, fb, router) {
+        this.nativeStorage = nativeStorage;
+        this.fb = fb;
+        this.router = router;
+        this.FB_APP_ID = 382437569196107;
     }
+    ProfilePage.prototype.ngOnInit = function () {
+        this.nativeStorage.getItem('facebook_user')
+            .then(function (data) { return console.log(data); }, function (error) { return console.log(error); });
+        this.fb.getLoginStatus()
+            .then(function (data) { return console.log(data); }, function (error) { return console.log(error); });
+    };
+    ProfilePage.prototype.doFbLogout = function () {
+        var _this = this;
+        this.fb.logout()
+            .then(function (res) {
+            //user logged out so we will remove him from the NativeStorage
+            _this.nativeStorage.remove('facebook_user');
+            _this.router.navigate(["/login"]);
+        }, function (error) {
+            console.log(error);
+        });
+    };
     ProfilePage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-profile',
             template: __webpack_require__(/*! ./profile.page.html */ "./src/app/profile/profile.page.html"),
             styles: [__webpack_require__(/*! ./profile.page.scss */ "./src/app/profile/profile.page.scss")]
-        })
+        }),
+        __metadata("design:paramtypes", [_ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"],
+            _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_1__["Facebook"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], ProfilePage);
     return ProfilePage;
 }());
