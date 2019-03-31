@@ -56,7 +56,7 @@ var ProfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Tab Two\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <button (click)=\"doFbLogout()\" >\n    Today\n</button>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"2\">\n        <ion-avatar>\n          <img src=\"{{userPicture}}\">\n        </ion-avatar>\n      </ion-col>\n  \n      <ion-col>\n        <ion-title>{{userName}}</ion-title>\n      </ion-col>\n  \n    </ion-row>\n  </ion-grid>\n</ion-header>\n\n"
 
 /***/ }),
 
@@ -103,13 +103,18 @@ var ProfilePage = /** @class */ (function () {
         this.nativeStorage = nativeStorage;
         this.fb = fb;
         this.router = router;
-        this.FB_APP_ID = 382437569196107;
     }
     ProfilePage.prototype.ngOnInit = function () {
+        var _this = this;
         this.nativeStorage.getItem('facebook_user')
-            .then(function (data) { return console.log(data); }, function (error) { return console.log(error); });
-        this.fb.getLoginStatus()
-            .then(function (data) { return console.log(data); }, function (error) { return console.log(error); });
+            .then(function (data) {
+            _this.userName = data.name;
+            _this.userEmail = data.email;
+            _this.userPicture = data.picture;
+            console.log(_this.userName +
+                _this.userEmail +
+                _this.userPicture);
+        }, function (error) { return console.log(error); });
     };
     ProfilePage.prototype.doFbLogout = function () {
         var _this = this;

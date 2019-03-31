@@ -997,7 +997,7 @@ var AppComponent = /** @class */ (function () {
             }, function (err) {
                 //we don't have the user data so we will ask him to log in
                 //this.router.navigate(["/intro"]);
-                _this.router.navigateByUrl('/intro');
+                _this.router.navigateByUrl('/');
                 _this.splashScreen.hide();
             });
             _this.statusBar.styleDefault();

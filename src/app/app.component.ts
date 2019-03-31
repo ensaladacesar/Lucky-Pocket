@@ -41,7 +41,7 @@ export class AppComponent {
       }, err => {
         //we don't have the user data so we will ask him to log in
         //this.router.navigate(["/intro"]);
-        this.router.navigateByUrl('/intro');
+        this.router.navigateByUrl('/');
         this.splashScreen.hide();
       });
 
