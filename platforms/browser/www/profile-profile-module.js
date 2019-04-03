@@ -56,7 +56,7 @@ var ProfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"2\">\n        <ion-avatar>\n          <img src=\"{{userPicture}}\">\n        </ion-avatar>\n      </ion-col>\n  \n      <ion-col>\n        <ion-title>{{userName}}</ion-title>\n      </ion-col>\n  \n    </ion-row>\n  </ion-grid>\n</ion-header>\n\n"
+module.exports = "<ion-header>\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"2\">\n        <ion-avatar>\n          <img src=\"{{userPicture}}\">\n        </ion-avatar>\n      </ion-col>\n  \n      <ion-col>\n        <ion-title>{{userName}}</ion-title>\n      </ion-col>\n  \n    </ion-row>\n  </ion-grid>\n  <button (click)=\"doFbLogout()\" >\n    Cerrar sesión\n  </button>\n</ion-header>\n\n"
 
 /***/ }),
 
@@ -118,11 +118,20 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage.prototype.doFbLogout = function () {
         var _this = this;
-        this.fb.logout()
+        this.fb.getLoginStatus()
             .then(function (res) {
-            //user logged out so we will remove him from the NativeStorage
-            _this.nativeStorage.remove('facebook_user');
-            _this.router.navigate(["/login"]);
+            if (res.status == 'connected') {
+                console.log(res);
+                _this.fb.logout()
+                    .then(function (resp) {
+                    console.log(resp);
+                }, function (error) {
+                    console.log(error);
+                });
+                //user logged out so we will remove him from the NativeStorage
+                _this.nativeStorage.remove('facebook_user');
+                _this.router.navigate(["/login"]);
+            }
         }, function (error) {
             console.log(error);
         });

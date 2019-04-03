@@ -56,7 +56,7 @@ var TabsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-tabs>\n  <ion-tab-bar slot=\"bottom\" class=\"red\">\n    <ion-tab-button tab=\"profile\" class=\"red\">\n      <ion-img src=\"../../assets/icons/perfil.svg\" class=\"icon-nav\"></ion-img>\n      <ion-label>Mi perfil</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"search\" class=\"red\">\n      <ion-img src=\"../../assets/icons/buscar.svg\" class=\"icon-nav\"></ion-img>\n      <ion-label>Explorar</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab3\" class=\"red\">\n      <ion-img src=\"../../assets/icons/bolsillo.svg\" class=\"icon-nav\"></ion-img>\n      <ion-label>Mi bolsillo</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n"
+module.exports = "<ion-tabs>\n  <ion-tab-bar slot=\"bottom\" class=\"red\">\n    <ion-tab-button tab=\"home\" class=\"red\">\n      <ion-img src=\"../../assets/icons/home.svg\" class=\"icon-nav\"></ion-img>\n      <ion-label>Inicio</ion-label>\n    </ion-tab-button>\n    \n    <ion-tab-button tab=\"profile\" class=\"red\">\n      <ion-img src=\"../../assets/icons/perfil.svg\" class=\"icon-nav\"></ion-img>\n      <ion-label>Mi perfil</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"search\" class=\"red\">\n      <ion-img src=\"../../assets/icons/buscar.svg\" class=\"icon-nav\"></ion-img>\n      <ion-label>Explorar</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"pocket\" class=\"red\">\n      <ion-img src=\"../../assets/icons/bolsillo.svg\" class=\"icon-nav\"></ion-img>\n      <ion-label>Mi bolsillo</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n"
 
 /***/ }),
 
@@ -134,6 +134,15 @@ var routes = [
         component: _tabs_page__WEBPACK_IMPORTED_MODULE_2__["TabsPage"],
         children: [
             {
+                path: 'home',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: '../home/home.module#HomePageModule'
+                    }
+                ]
+            },
+            {
                 path: 'profile',
                 children: [
                     {
@@ -152,24 +161,24 @@ var routes = [
                 ]
             },
             {
-                path: 'tab3',
+                path: 'pocket',
                 children: [
                     {
                         path: '',
-                        loadChildren: '../tab3/tab3.module#Tab3PageModule'
+                        loadChildren: '../pocket/pocket.module#PocketPageModule'
                     }
                 ]
             },
             {
                 path: '',
-                redirectTo: '/tabs/profile',
+                redirectTo: 'tabs/home',
                 pathMatch: 'full'
             }
         ]
     },
     {
         path: '',
-        redirectTo: '/tabs/profile',
+        redirectTo: 'tabs/home',
         pathMatch: 'full'
     }
 ];

@@ -92,6 +92,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -141,15 +143,40 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
+
 var LoginPage = /** @class */ (function () {
-    function LoginPage(fb, nativeStorage, loadingController, router) {
+    function LoginPage(fb, nativeStorage, loadingController, router, user, http) {
         this.fb = fb;
         this.nativeStorage = nativeStorage;
         this.loadingController = loadingController;
         this.router = router;
+        this.user = user;
+        this.http = http;
         this.FB_APP_ID = 382437569196107;
     }
     LoginPage.prototype.ngOnInit = function () {
+    };
+    LoginPage.prototype.createUser = function (name, email, birthday) {
+        var _this = this;
+        this.user.createUser(name, email, birthday)
+            .subscribe(function (res) {
+            console.log(res);
+            _this.createUserPoints(res);
+            _this.createUserCredit(res);
+        });
+    };
+    LoginPage.prototype.createUserPoints = function (user_id) {
+        this.user.createUserPoints(user_id)
+            .subscribe(function (res) {
+            console.log(res);
+        });
+    };
+    LoginPage.prototype.createUserCredit = function (user_id) {
+        this.user.createUserCredit(user_id)
+            .subscribe(function (res) {
+            console.log(res);
+        });
     };
     LoginPage.prototype.doFbLogin = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -174,6 +201,13 @@ var LoginPage = /** @class */ (function () {
                             _this.fb.api("/me?fields=name,email,birthday", permissions)
                                 .then(function (user) {
                                 user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
+                                _this.user.userExist(user.email)
+                                    .subscribe(function (res) {
+                                    console.log(res);
+                                    if (res == false) {
+                                        _this.createUser(user.name, user.email, user.birthday);
+                                    }
+                                });
                                 //now we have the users info, let's save it in the NativeStorage
                                 _this.nativeStorage.setItem('facebook_user', {
                                     name: user.name,
@@ -229,9 +263,70 @@ var LoginPage = /** @class */ (function () {
         __metadata("design:paramtypes", [_ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_1__["Facebook"],
             _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], LoginPage);
     return LoginPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/user.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/user.service.ts ***!
+  \******************************************/
+/*! exports provided: UserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var UserService = /** @class */ (function () {
+    function UserService(http) {
+        this.http = http;
+    }
+    UserService.prototype.getUsers = function () {
+        return this.http.get("http://localhost:3000/api/getUsers");
+    };
+    UserService.prototype.userExist = function (email) {
+        var params = { email: email };
+        return this.http.post("http://localhost:3000/api/userExist", params);
+    };
+    UserService.prototype.createUser = function (name, email, birthday) {
+        var params = { name: name, email: email, birthday: birthday };
+        return this.http.post("http://localhost:3000/api/createUser", params);
+    };
+    UserService.prototype.createUserPoints = function (user_id) {
+        var params = { user_id: user_id };
+        return this.http.post("http://localhost:3000/api/createUserPoints", params);
+    };
+    UserService.prototype.createUserCredit = function (user_id) {
+        var params = { user_id: user_id };
+        return this.http.post("http://localhost:3000/api/createUserCredit", params);
+    };
+    UserService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], UserService);
+    return UserService;
 }());
 
 

@@ -13,13 +13,18 @@ import { IonicStorageModule } from '@ionic/storage';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { Facebook } from '@ionic-native/facebook/ngx';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,  IonicStorageModule.forRoot()],
+  imports: [HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule,  IonicStorageModule.forRoot()],
   providers: [
+    HttpClientModule,
+    HttpClient,
     StatusBar,
     SplashScreen,
     NativeStorage,

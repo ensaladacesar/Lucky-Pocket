@@ -38,7 +38,14 @@
     },
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "com.company.Name"
+    },
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "com.company.Name"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.company.Name"
+    }
+  }
 }

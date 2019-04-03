@@ -837,6 +837,14 @@ module.exports = webpackAsyncContext;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"../home/home.module": [
+		"./src/app/home/home.module.ts",
+		"home-home-module"
+	],
+	"../pocket/pocket.module": [
+		"./src/app/pocket/pocket.module.ts",
+		"pocket-pocket-module"
+	],
 	"../profile/profile.module": [
 		"./src/app/profile/profile.module.ts",
 		"profile-profile-module"
@@ -844,10 +852,6 @@ var map = {
 	"../search/search.module": [
 		"./src/app/search/search.module.ts",
 		"search-search-module"
-	],
-	"../tab3/tab3.module": [
-		"./src/app/tab3/tab3.module.ts",
-		"tab3-tab3-module"
 	],
 	"./intro/intro.module": [
 		"./src/app/intro/intro.module.ts",
@@ -905,9 +909,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 var routes = [
-    { path: 'intro', loadChildren: './intro/intro.module#IntroPageModule' },
-    { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
+    { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
     { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+    { path: '', loadChildren: './intro/intro.module#IntroPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -987,11 +991,13 @@ var AppComponent = /** @class */ (function () {
                 .then(function (data) {
                 // user is previously logged and we have his data
                 // we will let him access the app
-                _this.router.navigate(["/tabs"]);
+                //this.router.navigate(["/tabs"]);
+                _this.router.navigateByUrl('/tabs');
                 _this.splashScreen.hide();
             }, function (err) {
                 //we don't have the user data so we will ask him to log in
-                _this.router.navigate(["/intro"]);
+                //this.router.navigate(["/intro"]);
+                _this.router.navigateByUrl('/');
                 _this.splashScreen.hide();
             });
             _this.statusBar.styleDefault();

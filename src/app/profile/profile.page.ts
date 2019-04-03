@@ -40,11 +40,22 @@ export class ProfilePage {
   }
 
   doFbLogout(){
-		this.fb.logout()
+		this.fb.getLoginStatus()
 		.then(res =>{
-			//user logged out so we will remove him from the NativeStorage
-			this.nativeStorage.remove('facebook_user');
-			this.router.navigate(["/login"]);
+      
+      if(res.status == 'connected'){
+        console.log(res);
+        this.fb.logout()
+        .then(resp =>{
+          console.log(resp);
+        }, error => {
+          console.log(error);
+        })
+        
+        //user logged out so we will remove him from the NativeStorage
+        this.nativeStorage.remove('facebook_user');
+        this.router.navigate(["/login"]);
+      }
 		}, error =>{
 			console.log(error);
 		});

@@ -56,7 +56,7 @@ var ProfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Inicio</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n      <ion-row justify-content-start>\n        <ion-col size=\"2\">\n          <ion-avatar>\n              <img src=\"/assets/shapes.svg\">\n          </ion-avatar>\n        </ion-col>\n\n        <ion-col align-items-center >\n          <h6>César Hernández</h6>\n          \n        </ion-col>\n        \n        \n      </ion-row>\n  </ion-grid>\n  \n\n\n    <ion-card class=\"welcome-card\">\n      \n      <ion-card-header>\n        <ion-card-subtitle>Get Started</ion-card-subtitle>\n        <ion-card-title>Welcome to Ionic</ion-card-title>\n      </ion-card-header>\n      <ion-card-content>\n        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>\n      </ion-card-content>\n    </ion-card>\n    <ion-list lines=\"none\">\n      <ion-list-header>\n        <ion-label>Resources</ion-label>\n      </ion-list-header>\n      <ion-item href=\"https://ionicframework.com/docs/\">\n        <ion-icon slot=\"start\" color=\"medium\" name=\"book\"></ion-icon>\n        <ion-label>Ionic Documentation</ion-label>\n      </ion-item>\n      <ion-item href=\"https://ionicframework.com/docs/building/scaffolding\">\n        <ion-icon slot=\"start\" color=\"medium\" name=\"build\"></ion-icon>\n        <ion-label>Scaffold Out Your App</ion-label>\n      </ion-item>\n      <ion-item href=\"https://ionicframework.com/docs/layout/structure\">\n        <ion-icon slot=\"start\" color=\"medium\" name=\"grid\"></ion-icon>\n        <ion-label>Change Your App Layout</ion-label>\n      </ion-item>\n      <ion-item href=\"https://ionicframework.com/docs/theming/basics\">\n        <ion-icon slot=\"start\" color=\"medium\" name=\"color-fill\"></ion-icon>\n        <ion-label>Theme Your App</ion-label>\n      </ion-item>\n    </ion-list>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"2\">\n        <ion-avatar>\n          <img src=\"{{userPicture}}\">\n        </ion-avatar>\n      </ion-col>\n  \n      <ion-col>\n        <ion-title>{{userName}}</ion-title>\n      </ion-col>\n  \n    </ion-row>\n  </ion-grid>\n  <button (click)=\"doFbLogout()\" >\n    Cerrar sesión\n  </button>\n</ion-header>\n\n"
 
 /***/ }),
 
@@ -67,7 +67,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Inicio</ion-titl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jZXNhcmhlcm5hbmRlenJvY2hhL1NpdGVzL0x1Y2t5LVBvY2tldC9zcmMvYXBwL3Byb2ZpbGUvcHJvZmlsZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wcm9maWxlL3Byb2ZpbGUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndlbGNvbWUtY2FyZCBpb24taW1nIHtcbiAgbWF4LWhlaWdodDogMzV2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbiJdfQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2ZpbGUvcHJvZmlsZS5wYWdlLnNjc3MifQ== */"
 
 /***/ }),
 
@@ -82,22 +82,69 @@ module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidd
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePage", function() { return ProfilePage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/facebook/ngx */ "./node_modules/@ionic-native/facebook/ngx/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
 
 var ProfilePage = /** @class */ (function () {
-    function ProfilePage() {
+    function ProfilePage(nativeStorage, fb, router) {
+        this.nativeStorage = nativeStorage;
+        this.fb = fb;
+        this.router = router;
     }
+    ProfilePage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.nativeStorage.getItem('facebook_user')
+            .then(function (data) {
+            _this.userName = data.name;
+            _this.userEmail = data.email;
+            _this.userPicture = data.picture;
+            console.log(_this.userName +
+                _this.userEmail +
+                _this.userPicture);
+        }, function (error) { return console.log(error); });
+    };
+    ProfilePage.prototype.doFbLogout = function () {
+        var _this = this;
+        this.fb.getLoginStatus()
+            .then(function (res) {
+            if (res.status == 'connected') {
+                console.log(res);
+                _this.fb.logout()
+                    .then(function (resp) {
+                    console.log(resp);
+                }, function (error) {
+                    console.log(error);
+                });
+                //user logged out so we will remove him from the NativeStorage
+                _this.nativeStorage.remove('facebook_user');
+                _this.router.navigate(["/login"]);
+            }
+        }, function (error) {
+            console.log(error);
+        });
+    };
     ProfilePage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-profile',
             template: __webpack_require__(/*! ./profile.page.html */ "./src/app/profile/profile.page.html"),
             styles: [__webpack_require__(/*! ./profile.page.scss */ "./src/app/profile/profile.page.scss")]
-        })
+        }),
+        __metadata("design:paramtypes", [_ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"],
+            _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_1__["Facebook"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], ProfilePage);
     return ProfilePage;
 }());
