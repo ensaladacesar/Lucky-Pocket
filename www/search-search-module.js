@@ -56,7 +56,7 @@ var SearchPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Tab Three\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content></ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Explorar\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-card>\n      <ion-row>\n        <ion-col size=\"4\">\n          <img src=\"https://ionicframework.com/docs/demos/api/card/madison.jpg\">\n        </ion-col>\n\n        <ion-col size=\"8\">\n          <ion-card-header>\n            <ion-card-title>Samsung Galaxy s9</ion-card-title>\n            <ion-card-subtitle>Smartphones</ion-card-subtitle>\n          </ion-card-header>\n\n          <ion-card-content>\n            $3,131\n          </ion-card-content>\n          <ion-card-content>\n            <button ion-button>\n              <ion-icon name=\"heart-empty\"></ion-icon>\n            </button>\n          </ion-card-content>\n        </ion-col>\n\n      </ion-row>\n    </ion-card>\n  </ion-grid>\n</ion-content>\n"
 
 /***/ }),
 

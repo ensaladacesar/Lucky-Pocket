@@ -203,7 +203,6 @@ var LoginPage = /** @class */ (function () {
                                 user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
                                 _this.user.userExist(user.email)
                                     .subscribe(function (res) {
-                                    console.log(res);
                                     if (res == false) {
                                         _this.createUser(user.name, user.email, user.birthday);
                                     }
