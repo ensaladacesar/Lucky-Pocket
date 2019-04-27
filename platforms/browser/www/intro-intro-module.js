@@ -62,7 +62,7 @@ var IntroPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-slides pager=\"true\">\n  <ion-slide>\n    <ion-row>\n      <ion-img src=\"../../assets/icons/intro.svg\" class=\"icon-nav\"></ion-img>\n    </ion-row>\n  </ion-slide>\n  \n  <ion-slide>\n    <ion-row>\n      <ion-img src=\"../../assets/icons/intro.svg\" class=\"icon-nav\"></ion-img>\n    </ion-row>\n  </ion-slide>\n  \n  <ion-slide>\n    <ion-row>\n      <ion-img src=\"../../assets/icons/intro.svg\" class=\"icon-nav\"></ion-img>\n      <ion-button expand=\"block\" routerLink=\"/login\" routerDirection=\"root\">Inicio de sesión</ion-button>\n    </ion-row>\n  </ion-slide>\n</ion-slides> \n  \n\n"
+module.exports = "<ion-content>\n  <ion-slides pager=\"true\">\n      <ion-slide>\n        <ion-row>\n          <ion-img src=\"../../assets/icons/sl1.svg\" class=\"icon-nav\"></ion-img>\n        </ion-row>\n      </ion-slide>\n      \n      <ion-slide>\n        <ion-row>\n          <ion-img src=\"../../assets/icons/sl2.svg\" class=\"icon-nav\"></ion-img>\n        </ion-row>\n      </ion-slide>\n      \n      <ion-slide>\n        <ion-row>\n          <ion-button expand=\"block\" routerLink=\"/login\" routerDirection=\"root\">Inicio de sesión</ion-button>\n        </ion-row>\n      </ion-slide>\n    </ion-slides>\n</ion-content>\n\n "
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ion-slides pager=\"true\">\n  <ion-slide>\n    <ion-row>\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ludHJvL2ludHJvLnBhZ2Uuc2NzcyJ9 */"
+module.exports = "ion-slides {\n  background-color: #E83F4B;\n  background-position: center center;\n  background-size: cover;\n  height: 100% !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jZXNhcmhlcm5hbmRlenJvY2hhL1NpdGVzL0x1Y2t5LVBvY2tldC9zcmMvYXBwL2ludHJvL2ludHJvLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHlCQUF5QjtFQUN6QixrQ0FBa0M7RUFDbEMsc0JBQXNCO0VBQ3RCLHVCQUF1QixFQUFBIiwiZmlsZSI6InNyYy9hcHAvaW50cm8vaW50cm8ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXNsaWRlc3sgXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0U4M0Y0QjtcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gICAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7IFxufVxuIl19 */"
 
 /***/ }),
 

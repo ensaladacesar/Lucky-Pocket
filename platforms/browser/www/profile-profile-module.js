@@ -56,7 +56,7 @@ var ProfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"2\">\n        <ion-avatar>\n          <img src=\"{{userPicture}}\">\n        </ion-avatar>\n      </ion-col>\n  \n      <ion-col>\n        <ion-title>{{userName}}</ion-title>\n      </ion-col>\n  \n    </ion-row>\n  </ion-grid>\n  <button (click)=\"doFbLogout()\" >\n    Cerrar sesión\n  </button>\n</ion-header>\n\n"
+module.exports = "<ion-header>\n  <ion-item>\n    <ion-avatar>\n      <img src=\"{{userPicture}}\">\n    </ion-avatar>\n    <ion-label>{{userName}}</ion-label>\n  </ion-item>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Historial de pagos</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Métodos de pago</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Configuración</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Invita a tus amigos</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Ayuda</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label (click)=\"doFbLogout()\">Cerrar sesión</ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>\n\n\n\n"
 
 /***/ }),
 

@@ -56,7 +56,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Productos destacados</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-card>\n          <ion-row>\n            <ion-col size=\"12\">\n              <img src=\"../../../assets/products/1/1.jpg\">\n            </ion-col>\n          </ion-row>\n          <ion-row>\n    \n            <ion-col size=\"12\">\n              <ion-card-header>\n                <ion-card-title>Samsung Galaxy s9</ion-card-title>\n                <ion-card-subtitle>Smartphones</ion-card-subtitle>\n              </ion-card-header>\n    \n              <ion-card-content>\n                $3,131\n              </ion-card-content>\n              <ion-card-content>\n                <button ion-button>\n                  <ion-icon name=\"heart-empty\"></ion-icon>\n                </button>\n              </ion-card-content>\n            </ion-col>\n    \n          </ion-row>\n        </ion-card>\n      </ion-col>\n      <ion-col>\n        <ion-card>\n          <ion-row>\n            <ion-col size=\"12\">\n              <img src=\"../../assets/products/1/1.jpg\">\n            </ion-col>\n          </ion-row>\n          <ion-row>\n    \n            <ion-col size=\"12\">\n              <ion-card-header>\n                <ion-card-title>Samsung Galaxy s9</ion-card-title>\n                <ion-card-subtitle>Smartphones</ion-card-subtitle>\n              </ion-card-header>\n    \n              <ion-card-content>\n                $3,131\n              </ion-card-content>\n              <ion-card-content>\n                <button ion-button>\n                  <ion-icon name=\"heart-empty\"></ion-icon>\n                </button>\n              </ion-card-content>\n            </ion-col>\n    \n          </ion-row>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  \n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Productos destacados</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-grid class=\"grid\" id=\"grid\">\n       \n  </ion-grid>\n\n\n  \n</ion-content>\n"
 
 /***/ }),
 
@@ -67,7 +67,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Productos destac
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jZXNhcmhlcm5hbmRlenJvY2hhL1NpdGVzL0x1Y2t5LVBvY2tldC9zcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndlbGNvbWUtY2FyZCBpb24taW1nIHtcbiAgbWF4LWhlaWdodDogMzV2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbiJdfQ== */"
+module.exports = ".grid-item {\n  width: 170px;\n  margin: 5px; }\n\n.grid-item--width2 {\n  width: 400px;\n  margin-bottom: 2px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jZXNhcmhlcm5hbmRlenJvY2hhL1NpdGVzL0x1Y2t5LVBvY2tldC9zcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBYSxZQUFZO0VBQUMsV0FBVSxFQUFBOztBQUVwQztFQUFxQixZQUFZO0VBQUcsa0JBQWlCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmdyaWQtaXRlbSB7IHdpZHRoOiAxNzBweDttYXJnaW46NXB4OyB9XG5cbi5ncmlkLWl0ZW0tLXdpZHRoMiB7IHdpZHRoOiA0MDBweDsgO21hcmdpbi1ib3R0b206MnB4O31cblxuIl19 */"
 
 /***/ }),
 
@@ -82,22 +82,72 @@ module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidd
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePage", function() { return HomePage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
 
 var HomePage = /** @class */ (function () {
-    function HomePage() {
+    function HomePage(nativeStorage, loadingController, router, product, http) {
+        this.nativeStorage = nativeStorage;
+        this.loadingController = loadingController;
+        this.router = router;
+        this.product = product;
+        this.http = http;
+        this.items = '';
     }
+    HomePage.prototype.ionViewDidEnter = function () {
+        var _this = this;
+        setTimeout(function () {
+            var elem = document.querySelector('.grid');
+            var msnry = new _this.Masonry(elem, {
+                // options
+                itemSelector: '.grid-item',
+                fitWidth: true
+            });
+        }, 100);
+    };
+    HomePage.prototype.ngOnInit = function () {
+        this.getFeatured();
+    };
+    HomePage.prototype.getFeatured = function () {
+        var _this = this;
+        this.items = '';
+        this.product.getFeatured()
+            .subscribe(function (res) {
+            console.log(res.length);
+            for (var i = 0; i < res.length; i++) {
+                _this.items += '<ion-card><ion-card-content><ion-row><ion-col size="5"><img src="../../../assets/products/' + res[i].product_id + '/1.jpg"></ion-col><ion-col size="7"><ion-card-header><ion-card-title>' + res[i].product_name + '</ion-card-title><ion-card-subtitle>' + res[i].categorie_name + '</ion-card-subtitle></ion-card-header><ion-item><ion-progress-bar value="0.5"></ion-progress-bar></ion-item></ion-col></ion-row></ion-card-content></ion-card>';
+            }
+            document.getElementById('grid').innerHTML = _this.items;
+        });
+    };
     HomePage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.page.html */ "./src/app/home/home.page.html"),
             styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
-        })
+        }),
+        __metadata("design:paramtypes", [_ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_2__["NativeStorage"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
     ], HomePage);
     return HomePage;
 }());

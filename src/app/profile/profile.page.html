@@ -1,20 +1,34 @@
 <ion-header>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="2">
-        <ion-avatar>
-          <img src="{{userPicture}}">
-        </ion-avatar>
-      </ion-col>
-  
-      <ion-col>
-        <ion-title>{{userName}}</ion-title>
-      </ion-col>
-  
-    </ion-row>
-  </ion-grid>
-  <button (click)="doFbLogout()" >
-    Cerrar sesión
-  </button>
+  <ion-item>
+    <ion-avatar>
+      <img src="{{userPicture}}">
+    </ion-avatar>
+    <ion-label>{{userName}}</ion-label>
+  </ion-item>
 </ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Historial de pagos</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Métodos de pago</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Configuración</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Invita a tus amigos</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ayuda</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label (click)="doFbLogout()">Cerrar sesión</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+
 

@@ -16,8 +16,6 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
-
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

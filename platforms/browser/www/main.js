@@ -839,6 +839,7 @@ module.exports = webpackAsyncContext;
 var map = {
 	"../home/home.module": [
 		"./src/app/home/home.module.ts",
+		"common",
 		"home-home-module"
 	],
 	"../pocket/pocket.module": [
@@ -851,6 +852,7 @@ var map = {
 	],
 	"../search/search.module": [
 		"./src/app/search/search.module.ts",
+		"common",
 		"search-search-module"
 	],
 	"./intro/intro.module": [
@@ -875,7 +877,7 @@ function webpackAsyncContext(req) {
 			throw e;
 		});
 	}
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		var id = ids[0];
 		return __webpack_require__(id);
 	});

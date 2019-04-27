@@ -22,5 +22,9 @@ export class ProductService {
     return this.http.post(`http://localhost:3000/api/addFeatured`, params);
   }
 
-}
+  searchProduct(keyword: string): Observable <any> {
+    const params: any = {keyword};
+    return this.http.post(`http://localhost:3000/api/searchProduct`, params);
+  }
 
+}
