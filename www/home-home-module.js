@@ -111,17 +111,6 @@ var HomePage = /** @class */ (function () {
         this.http = http;
         this.items = '';
     }
-    HomePage.prototype.ionViewDidEnter = function () {
-        var _this = this;
-        setTimeout(function () {
-            var elem = document.querySelector('.grid');
-            var msnry = new _this.Masonry(elem, {
-                // options
-                itemSelector: '.grid-item',
-                fitWidth: true
-            });
-        }, 100);
-    };
     HomePage.prototype.ngOnInit = function () {
         this.getFeatured();
     };

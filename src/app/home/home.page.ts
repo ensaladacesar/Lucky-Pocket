@@ -19,19 +19,6 @@ export class HomePage {
     private http: HttpClient
   ) { }
 
-  Masonry: any; //outer scope
-
-  ionViewDidEnter() {
-    setTimeout(() => {
-      var elem = document.querySelector('.grid');
-      var msnry = new this.Masonry(elem, {
-      // options
-      itemSelector: '.grid-item',
-      fitWidth: true
-      });
-    }, 100);
-  }
-
   items:any = '';
   
   ngOnInit() {

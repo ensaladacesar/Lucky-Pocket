@@ -56,7 +56,7 @@ var SearchPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Explorar\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-searchbar id=\"keyword\" (keyup)=\"searchProduct($event.target.value)\"></ion-searchbar>\n  <ion-grid>\n    <ion-row>\n      <ion-col class=\"ion-text-center\">Celulares</ion-col>\n      <ion-col class=\"ion-text-center\">Juegos</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-text-center\">Hogar</ion-col>\n      <ion-col class=\"ion-text-center\">Ropa</ion-col>\n    </ion-row>\n\n  </ion-grid>\n  \n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Explorar\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-searchbar id=\"keyword\" (keyup)=\"searchProduct($event.target.value)\"></ion-searchbar>\n  <ion-grid *ngIf=\"showCategories\">\n    <ion-row>\n      <ion-col class=\"ion-text-center\">Celulares</ion-col>\n      <ion-col class=\"ion-text-center\">Juegos</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-text-center\">Hogar</ion-col>\n      <ion-col class=\"ion-text-center\">Ropa</ion-col>\n    </ion-row>\n\n  </ion-grid>\n\n  <ion-grid *ngIf=\"showGrid\" id=\"productGrid\">\n    avfug\n  </ion-grid>\n  \n</ion-content>\n"
 
 /***/ }),
 
@@ -83,7 +83,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchPage", function() { return SearchPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,21 +94,41 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 var SearchPage = /** @class */ (function () {
-    function SearchPage(ProductService, http) {
+    function SearchPage(ProductService) {
         this.ProductService = ProductService;
-        this.http = http;
-        this.keyword = '';
+        this.showCategories = true;
+        this.showGrid = false;
+        this.items = '';
     }
     SearchPage.prototype.ngOnInit = function () {
-        this.searchProduct(this.keyword);
     };
     SearchPage.prototype.searchProduct = function (keyword) {
-        this.ProductService.searchProduct(keyword)
-            .subscribe(function (res) {
-            console.log(res);
-        });
+        var _this = this;
+        this.items = '';
+        if (keyword == '') {
+            this.showCategories = true;
+            this.showGrid = false;
+        }
+        else {
+            this.showCategories = false;
+            this.showGrid = true;
+            this.ProductService.searchProduct(keyword)
+                .subscribe(function (res) {
+                console.log(res);
+                if (res.length == 0) {
+                    console.log('vacio');
+                    _this.items = "<h3>No hay productos con tu criterio de búsqeda, intenta otra cosa.</h3>";
+                }
+                else {
+                    console.log('no vacio');
+                    for (var i = 0; i < res.length; i++) {
+                        _this.items += '<ion-card><ion-card-content><ion-row><ion-col size="5"><img src="../../../assets/products/' + res[i].product_id + '/1.jpg"></ion-col><ion-col size="7"><ion-card-header><ion-card-title><ion-item [routerLink]="/product/' + res[i].product_id + '">' + res[i].product_name + '</ion-item></ion-card-title><ion-card-subtitle>' + res[i].categorie_name + '</ion-card-subtitle></ion-card-header><ion-item><ion-progress-bar value="0.5"></ion-progress-bar></ion-item></ion-col></ion-row></ion-card-content></ion-card>';
+                    }
+                }
+                document.getElementById('productGrid').innerHTML = _this.items;
+            });
+        }
     };
     SearchPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -117,8 +136,7 @@ var SearchPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./search.page.html */ "./src/app/search/search.page.html"),
             styles: [__webpack_require__(/*! ./search.page.scss */ "./src/app/search/search.page.scss")]
         }),
-        __metadata("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_1__["ProductService"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        __metadata("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_1__["ProductService"]])
     ], SearchPage);
     return SearchPage;
 }());

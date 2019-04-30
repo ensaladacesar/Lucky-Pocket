@@ -8,38 +8,11 @@ const routes: Routes = [
     component: SearchPage,
     children: [
       {
-        path: 'home',
+        path: 'product/:product_id',
         children: [
           {
             path: '',
-            loadChildren: '../home/home.module#HomePageModule'
-          }
-        ]
-      },
-      {
-        path: 'profile',
-        children: [
-          {
-            path: '',
-            loadChildren: '../profile/profile.module#ProfilePageModule'
-          }
-        ]
-      },
-      {
-        path: 'search',
-        children: [
-          {
-            path: '',
-            loadChildren: '../search/search.module#SearchPageModule'
-          }
-        ]
-      },
-      {
-        path: 'pocket',
-        children: [
-          {
-            path: '',
-            loadChildren: '../pocket/pocket.module#PocketPageModule'
+            loadChildren: '../product/product.module#HProductPageModule'
           }
         ]
       },

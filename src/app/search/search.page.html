@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-searchbar id="keyword" (keyup)="searchProduct($event.target.value)"></ion-searchbar>
-  <ion-grid>
+  <ion-grid *ngIf="showCategories">
     <ion-row>
       <ion-col class="ion-text-center">Celulares</ion-col>
       <ion-col class="ion-text-center">Juegos</ion-col>
@@ -19,6 +19,10 @@
       <ion-col class="ion-text-center">Ropa</ion-col>
     </ion-row>
 
+  </ion-grid>
+
+  <ion-grid *ngIf="showGrid" id="productGrid">
+    avfug
   </ion-grid>
   
 </ion-content>
