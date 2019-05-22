@@ -56,7 +56,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Productos destacados</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-grid class=\"grid\" id=\"grid\">\n       \n  </ion-grid>\n\n\n  \n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Productos destacados</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-grid *ngFor=\"let item of items\" class=\"grid\" id=\"grid\">\n    <ion-card>\n      <ion-card-content>\n        <ion-row>\n          <ion-col size=\"5\">\n            <img src=\"../../../assets/products/{{item.product_id}}/1.jpg\">\n          </ion-col>\n          <ion-col size=\"7\">\n            <ion-card-header>\n              <ion-card-title>\n                {{item.product_name}}\n              </ion-card-title>\n              <ion-card-subtitle>\n                {{item.category_name}}\n              </ion-card-subtitle>\n            </ion-card-header>\n            <ion-item>\n              <ion-progress-bar value=\"0.5\">\n\n              </ion-progress-bar>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n      </ion-card-content>\n    </ion-card>\n  </ion-grid>\n\n\n  \n</ion-content>\n"
 
 /***/ }),
 
@@ -109,21 +109,17 @@ var HomePage = /** @class */ (function () {
         this.router = router;
         this.product = product;
         this.http = http;
-        this.items = '';
     }
     HomePage.prototype.ngOnInit = function () {
         this.getFeatured();
     };
     HomePage.prototype.getFeatured = function () {
         var _this = this;
-        this.items = '';
+        this.items = null;
         this.product.getFeatured()
             .subscribe(function (res) {
             console.log(res.length);
-            for (var i = 0; i < res.length; i++) {
-                _this.items += '<ion-card><ion-card-content><ion-row><ion-col size="5"><img src="../../../assets/products/' + res[i].product_id + '/1.jpg"></ion-col><ion-col size="7"><ion-card-header><ion-card-title>' + res[i].product_name + '</ion-card-title><ion-card-subtitle>' + res[i].categorie_name + '</ion-card-subtitle></ion-card-header><ion-item><ion-progress-bar value="0.5"></ion-progress-bar></ion-item></ion-col></ion-row></ion-card-content></ion-card>';
-            }
-            document.getElementById('grid').innerHTML = _this.items;
+            _this.items = res;
         });
     };
     HomePage = __decorate([

@@ -130,7 +130,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var routes = [
     {
-        path: 'tabs',
+        path: '',
         component: _tabs_page__WEBPACK_IMPORTED_MODULE_2__["TabsPage"],
         children: [
             {
@@ -139,7 +139,7 @@ var routes = [
                     {
                         path: '',
                         loadChildren: '../home/home.module#HomePageModule'
-                    }
+                    },
                 ]
             },
             {
@@ -171,14 +171,14 @@ var routes = [
             },
             {
                 path: '',
-                redirectTo: 'tabs/home',
+                redirectTo: 'home',
                 pathMatch: 'full'
             }
         ]
     },
     {
         path: '',
-        redirectTo: 'tabs/home',
+        redirectTo: 'home',
         pathMatch: 'full'
     }
 ];

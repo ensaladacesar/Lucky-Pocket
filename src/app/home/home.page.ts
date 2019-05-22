@@ -19,22 +19,18 @@ export class HomePage {
     private http: HttpClient
   ) { }
 
-  items:any = '';
+  items:any;
   
   ngOnInit() {
     this.getFeatured();
   }
 
   getFeatured(){
-    this.items = '';
+    this.items = null;
     this.product.getFeatured()
     .subscribe(res =>{
       console.log(res.length);
-      for(let i = 0; i < res.length; i++){
-        this.items += '<ion-card><ion-card-content><ion-row><ion-col size="5"><img src="../../../assets/products/' + res[i].product_id + '/1.jpg"></ion-col><ion-col size="7"><ion-card-header><ion-card-title>' + res[i].product_name + '</ion-card-title><ion-card-subtitle>' + res[i].categorie_name + '</ion-card-subtitle></ion-card-header><ion-item><ion-progress-bar value="0.5"></ion-progress-bar></ion-item></ion-col></ion-row></ion-card-content></ion-card>';
-      }
-
-      document.getElementById('grid').innerHTML = this.items;
+      this.items = res;      
     });
   }
 }

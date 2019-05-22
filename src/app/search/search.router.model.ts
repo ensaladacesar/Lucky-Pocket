@@ -4,22 +4,17 @@ import { SearchPage } from './search.page';
 
 const routes: Routes = [
   {
-    path: 'search',
+    path: '',
     component: SearchPage,
     children: [
       {
-        path: 'product/:product_id',
+        path: 'product:product_id',
         children: [
           {
             path: '',
-            loadChildren: '../product/product.module#HProductPageModule'
+            loadChildren: '../product/product.module#ProductPageModule'
           }
         ]
-      },
-      {
-        path: '',
-        redirectTo: 'tabs/home',
-        pathMatch: 'full'
       }
     ]
   },
@@ -36,4 +31,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class SearchPageRoutingModule {}

@@ -1,0 +1,139 @@
+CREATE OR REPLACE FUNCTION public.obtiene_actualizacion(year_f int, month_f int)
+	RETURNS numeric
+	LANGUAGE sql
+AS $$
+	declare 
+		year numeric := 0;
+		month  INTEGER := 0;
+		actualizacion INTEGER := 0;
+	begin
+		year = date_part('year', now());
+		month = date_part('month', now());
+	
+		if(month_f <= 4 and year = year_f) then
+			actualizacion = 1;
+		elsif month_f = 1 then
+			select 
+				actualizacion = corriente.enero / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+			
+		elsif month_f = 2 then
+			select 
+				actualizacion = corriente.febrero / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+		elsif month_f = 3 then
+			select 
+				actualizacion = corriente.marzo / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+		elsif month_f = 4 then
+			select 
+				actualizacion = corriente.abril / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+		elsif month_f = 5 then
+			select 
+				actualizacion = corriente.mayo / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+		elsif month_f = 6 then
+			select 
+				actualizacion = corriente.junio / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+			corriente.anio = year and
+			rezago.anio = year_f
+	
+		elsif month_f = 7 then
+			select 
+				actualizacion = corriente.julio / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+		elsif month_f = 8 then
+			select 
+				actualizacion = corriente.agosto / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+		elsif month_f = 9 then
+			select 
+				actualizacion = corriente.septiembre / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+		elsif month_f = 10 then
+			select 
+				actualizacion = corriente.octubre / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+			elsif month_f = 11 then
+			select 
+				actualizacion = corriente.noviembre / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+			elsif month_f = 12 then
+			select 
+				actualizacion = corriente.diciembre / rezago.abril
+			from
+				valores_anio corriente
+				valores_anio rezago
+			where
+				corriente.anio = year and
+				rezago.anio = year_f
+		
+		end if
+		
+		return round(actualizacion, 4)
+	end
+ $$

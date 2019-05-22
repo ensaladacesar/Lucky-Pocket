@@ -846,6 +846,10 @@ var map = {
 		"./src/app/pocket/pocket.module.ts",
 		"pocket-pocket-module"
 	],
+	"../product/product.module": [
+		"./src/app/product/product.module.ts",
+		"product-product-module"
+	],
 	"../profile/profile.module": [
 		"./src/app/profile/profile.module.ts",
 		"profile-profile-module"
@@ -862,6 +866,10 @@ var map = {
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
 		"login-login-module"
+	],
+	"./product/product.module": [
+		"./src/app/product/product.module.ts",
+		"product-product-module"
 	],
 	"./tabs/tabs.module": [
 		"./src/app/tabs/tabs.module.ts",
@@ -913,7 +921,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var routes = [
     { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
     { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-    { path: '', loadChildren: './intro/intro.module#IntroPageModule' }
+    { path: '', loadChildren: './intro/intro.module#IntroPageModule' },
+    { path: 'product', loadChildren: './product/product.module#ProductPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

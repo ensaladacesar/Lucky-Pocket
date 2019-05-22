@@ -62,7 +62,7 @@ var LoginPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content padding>\n  Prueba registro con facebook.\n  <button ion-button block (click)=\"doFbLogin()\">Login con facebook</button>\n</ion-content>\n"
+module.exports = "<ion-content>\n  <ion-row justify-content-center align-items-center class=\"redBgFull text-center\">\n    <ion-button expand=\"block\" (click)=\"doFbLogin()\">Login con facebook</ion-button>\n  </ion-row>\n  \n</ion-content>\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ion-content padding>\n  Prueba registro con facebook.\n  <but
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyJ9 */"
+module.exports = ".redBgFull {\n  background-color: #E83F4B;\n  background-position: center center;\n  background-size: cover;\n  height: 100% !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jZXNhcmhlcm5hbmRlenJvY2hhL1NpdGVzL0x1Y2t5LVBvY2tldC9zcmMvYXBwL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHlCQUF5QjtFQUN6QixrQ0FBa0M7RUFDbEMsc0JBQXNCO0VBQ3RCLHVCQUF1QixFQUFBIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJlZEJnRnVsbHsgXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0U4M0Y0QjtcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gICAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7IFxufVxuIl19 */"
 
 /***/ }),
 

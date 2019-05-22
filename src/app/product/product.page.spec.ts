@@ -3,15 +3,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductPage } from './product.page';
 
-describe('ProfilePage', () => {
+describe('ProductPage', () => {
   let component: ProductPage;
   let fixture: ComponentFixture<ProductPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductPage],
+      declarations: [ ProductPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
