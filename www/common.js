@@ -126,6 +126,10 @@ var ProductService = /** @class */ (function () {
         var params = { keyword: keyword };
         return this.http.post("http://localhost:3000/api/searchProduct", params);
     };
+    ProductService.prototype.getProduct = function (product_id) {
+        var params = { product_id: product_id };
+        return this.http.post('http://localhost:3000/api/getProduct', params);
+    };
     ProductService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'

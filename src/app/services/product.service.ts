@@ -27,4 +27,9 @@ export class ProductService {
     return this.http.post(`http://localhost:3000/api/searchProduct`, params);
   }
 
+  getProduct(product_id: number): Observable <any> {
+    const params: any = {product_id};
+    return this.http.post('http://localhost:3000/api/getProduct', params);
+  }
+
 }

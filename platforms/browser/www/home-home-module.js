@@ -56,7 +56,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Productos destacados</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-grid *ngFor=\"let item of items\" class=\"grid\" id=\"grid\">\n    <ion-card>\n      <ion-card-content>\n        <ion-row>\n          <ion-col size=\"5\">\n            <img src=\"../../../assets/products/{{item.product_id}}/1.jpg\">\n          </ion-col>\n          <ion-col size=\"7\">\n            <ion-card-header>\n              <ion-card-title>\n                {{item.product_name}}\n              </ion-card-title>\n              <ion-card-subtitle>\n                {{item.category_name}}\n              </ion-card-subtitle>\n            </ion-card-header>\n            <ion-item>\n              <ion-progress-bar value=\"0.5\">\n\n              </ion-progress-bar>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n      </ion-card-content>\n    </ion-card>\n  </ion-grid>\n\n\n  \n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Productos destacados</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-grid *ngFor=\"let item of items\" class=\"grid\" id=\"grid\">\n    <ion-card>\n      <ion-card-content>\n        <ion-row>\n          <ion-col size=\"5\">\n            <img src=\"../../../assets/products/{{item.product_id}}/1.jpg\">\n          </ion-col>\n          <ion-col size=\"7\">\n            <ion-card-header>\n              <ion-button routerLink=\"/product/{{item.product_id}}\">\n                {{item.product_name}}\n              </ion-button>\n              <ion-card-subtitle>\n                {{item.category_name}}\n              </ion-card-subtitle>\n            </ion-card-header>\n            <ion-item>\n              <ion-progress-bar value=\"0.5\">\n\n              </ion-progress-bar>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n      </ion-card-content>\n    </ion-card>\n  </ion-grid>\n\n\n  \n</ion-content>\n"
 
 /***/ }),
 
@@ -86,7 +86,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -101,14 +100,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var HomePage = /** @class */ (function () {
-    function HomePage(nativeStorage, loadingController, router, product, http) {
+    function HomePage(nativeStorage, loadingController, router, product) {
         this.nativeStorage = nativeStorage;
         this.loadingController = loadingController;
         this.router = router;
         this.product = product;
-        this.http = http;
     }
     HomePage.prototype.ngOnInit = function () {
         this.getFeatured();
@@ -118,7 +115,6 @@ var HomePage = /** @class */ (function () {
         this.items = null;
         this.product.getFeatured()
             .subscribe(function (res) {
-            console.log(res.length);
             _this.items = res;
         });
     };
@@ -131,8 +127,7 @@ var HomePage = /** @class */ (function () {
         __metadata("design:paramtypes", [_ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_2__["NativeStorage"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+            _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"]])
     ], HomePage);
     return HomePage;
 }());

@@ -1,0 +1,19 @@
+<ion-grid>
+
+  <ion-row *ngIf="product_exist">
+
+    <ion-col>
+      <ion-img src="../../../assets/products/{{product_id}}/1.jpg"></ion-img>
+    </ion-col>
+
+    <ion-col>
+      <h3>{{product_name}}</h3>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row *ngIf="!product_exist">
+    <h3>No existe el producto</h3>
+  </ion-row>
+
+</ion-grid>

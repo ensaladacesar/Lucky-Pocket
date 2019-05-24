@@ -16,7 +16,6 @@ export class HomePage {
     public loadingController: LoadingController,
     private router: Router,
     private product: ProductService,
-    private http: HttpClient
   ) { }
 
   items:any;
@@ -29,7 +28,6 @@ export class HomePage {
     this.items = null;
     this.product.getFeatured()
     .subscribe(res =>{
-      console.log(res.length);
       this.items = res;      
     });
   }

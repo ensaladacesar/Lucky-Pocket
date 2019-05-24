@@ -30,6 +30,7 @@
     "@ionic/ng-toolkit": "^1.0.8",
     "@ionic/storage": "^2.2.0",
     "@thisissoon/angular-masonry": "^1.2.0",
+    "browse": "0.4.0",
     "cordova-android": "7.1.4",
     "cordova-browser": "^5.0.4",
     "cordova-plugin-advanced-http": "2.0.6",

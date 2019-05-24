@@ -848,6 +848,7 @@ var map = {
 	],
 	"../product/product.module": [
 		"./src/app/product/product.module.ts",
+		"common",
 		"product-product-module"
 	],
 	"../profile/profile.module": [
@@ -869,6 +870,7 @@ var map = {
 	],
 	"./product/product.module": [
 		"./src/app/product/product.module.ts",
+		"common",
 		"product-product-module"
 	],
 	"./tabs/tabs.module": [
