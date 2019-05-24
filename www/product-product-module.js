@@ -68,7 +68,7 @@ var ProductPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>product</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n"
+module.exports = ""
 
 /***/ }),
 
@@ -131,7 +131,7 @@ var ProductPage = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-grid>\n\n  <ion-row *ngIf=\"product_exist\">\n\n    <ion-col>\n      <ion-img src=\"../../../assets/products/{{product_id}}/1.jpg\"></ion-img>\n    </ion-col>\n\n    <ion-col>\n      <h3>{{product_name}}</h3>\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf=\"!product_exist\">\n    <h3>No existe el producto</h3>\n  </ion-row>\n\n</ion-grid>"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-grid>\n\n  <ion-row *ngIf=\"product_exist\">\n\n    <ion-col>\n      <ion-img src=\"../../../assets/products/{{product_id}}/1.jpg\"></ion-img>\n    </ion-col>\n\n    <ion-col>\n      <h3>{{product_name}}</h3>\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf=\"!product_exist\">\n    <h3>No existe el producto</h3>\n  </ion-row>\n\n</ion-grid>"
 
 /***/ }),
 
