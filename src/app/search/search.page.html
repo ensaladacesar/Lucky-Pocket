@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar id="keyword" (keyup)="searchProduct($event.target.value)"></ion-searchbar>
+  <ion-searchbar id="keyword" placeholder="Buscar" (keyup)="searchProduct($event.target.value)"></ion-searchbar>
   <ion-grid *ngIf="showCategories">
     <ion-row>
       <ion-col class="ion-text-center">Celulares</ion-col>
@@ -31,7 +31,7 @@
             </ion-col>
             <ion-col size="7">
               <ion-card-header>
-                <ion-button routerLink="/product/{{item.product_id}}">
+                <ion-button class="productBtn" routerLink="/product/{{item.product_id}}">
                   {{item.product_name}}
                 </ion-button>
                 <ion-card-subtitle>

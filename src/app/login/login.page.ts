@@ -105,12 +105,12 @@ async presentLoading(loading) {
 
 doFbLogout(){
 this.fb.logout()
-.then(res =>{
-	//user logged out so we will remove him from the NativeStorage
-	this.nativeStorage.remove('facebook_user');
-	this.router.navigate(["/login"]);
-}, error =>{
-		console.log(error);
-	});
-}
+	.then(res =>{
+		//user logged out so we will remove him from the NativeStorage
+		this.nativeStorage.remove('facebook_user');
+		this.router.navigate(["/login"]);
+	}, error =>{
+			console.log(error);
+		});
+	}
 }

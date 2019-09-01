@@ -14,11 +14,13 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ModalPage } from '../app/product/modal/modal.page';
+
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent,ModalPage],
+  entryComponents: [ModalPage],
   imports: [HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule,  IonicStorageModule.forRoot()],
   providers: [
     HttpClientModule,

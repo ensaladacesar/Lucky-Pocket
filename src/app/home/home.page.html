@@ -1,36 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Productos destacados</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-grid class="p25">
+    <ion-col>
 
-  <ion-grid *ngFor="let item of items" class="grid" id="grid">
-    <ion-card>
-      <ion-card-content>
-        <ion-row>
-          <ion-col size="5">
-            <img src="../../../assets/products/{{item.product_id}}/1.jpg">
-          </ion-col>
-          <ion-col size="7">
-            <ion-card-header>
-              <ion-button routerLink="/product/{{item.product_id}}">
-                {{item.product_name}}
-              </ion-button>
-              <ion-card-subtitle>
-                {{item.category_name}}
-              </ion-card-subtitle>
-            </ion-card-header>
-            <ion-item>
-              <ion-progress-bar value="0.5">
+    </ion-col>
+  </ion-grid>
 
-              </ion-progress-bar>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
+  <ion-grid  class="grid" id="grid">
+    <ion-row>
+      <ion-col *ngFor="let item of items" col-6 no-padding>
+        <ion-card class="productCard">
+          <img src="../../../assets/products/{{item.product_id}}/1.jpg">
+          <ion-card-content>
+            <a class="productBtn" routerLink="/product/{{item.product_id}}">
+              {{item.product_name}}
+            </a>
+            <ion-card-subtitle>
+              {{item.category_name}}
+            </ion-card-subtitle>
+          </ion-card-content>            
+          </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+
+    
   </ion-grid>
 
 

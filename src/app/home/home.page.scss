@@ -1,4 +1,17 @@
-.grid-item { width: 170px;margin:5px; }
+.productBtn{
+    --background: transparent !important;
+    --background-activated: transparent !important;
+}
 
-.grid-item--width2 { width: 400px; ;margin-bottom:2px;}
+.productCard{
+    width: 165px;
+    height: 225px;
+    --border-radius: 0px;
+}
+.p25{
+    height: 25% !important;
+}
 
+ion-card{
+    margin: 5px !important;
+}

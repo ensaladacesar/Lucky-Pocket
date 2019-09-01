@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../services/product.service'
+import { ProductService } from '../../services/product.service';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-view',
@@ -8,13 +10,15 @@ import { ProductService } from '../../services/product.service'
   styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
+  product_exist: boolean = false;
   product_id: any = '';
   product_name: any = '';
-
-  product_exist: boolean = false;
+  brand_name: any = '';
+  category_name: any = '';
   
   constructor(public  ActivatedRoute: ActivatedRoute,
-              public ProductService: ProductService) { }
+              public ProductService: ProductService,
+              public modalController: ModalController) { }
 
   ngOnInit() {
     this.loadProduct(this.ActivatedRoute.snapshot.paramMap.get('product_id'));
@@ -25,7 +29,10 @@ export class ViewComponent implements OnInit {
     .subscribe(res =>{ 
       if(res.length > 0){
         this.product_exist = true;
-        this.setData(res[0].product_id, res[0].name)
+        this.product_id = res[0].product_id;
+        this.product_name = res[0].product_name;
+        this.brand_name = res[0].brand_name;
+        this.category_name = res[0].category_name;
       }
       else{
         this.product_exist = false;
@@ -38,5 +45,20 @@ export class ViewComponent implements OnInit {
     this.product_id = product_id;
     this.product_name = name;
   }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalPage
+    });
+    return await modal.present();
+  }
+
+  async dismissModal() {
+    
+    
+    return await this.modalController.dismiss();
+  }
+
+
 
 }

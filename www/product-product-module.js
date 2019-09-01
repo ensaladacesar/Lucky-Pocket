@@ -131,7 +131,7 @@ var ProductPage = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-grid>\n\n  <ion-row *ngIf=\"product_exist\">\n\n    <ion-col>\n      <ion-img src=\"../../../assets/products/{{product_id}}/1.jpg\"></ion-img>\n    </ion-col>\n\n    <ion-col>\n      <h3>{{product_name}}</h3>\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf=\"!product_exist\">\n    <h3>No existe el producto</h3>\n  </ion-row>\n\n</ion-grid>"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-grid>\n\n  <ion-row *ngIf=\"product_exist\">\n\n    <ion-col>\n      <ion-img src=\"../../../assets/products/{{product_id}}/1.jpg\"></ion-img>\n    </ion-col>\n\n    <ion-col>\n      <ion-card-header>\n        <ion-card-title>{{product_name}}</ion-card-title>\n        <ion-card-subtitle>{{brand_name}}</ion-card-subtitle>\n        <ion-card-subtitle>{{category_name}}</ion-card-subtitle>\n      </ion-card-header>\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf=\"!product_exist\">\n    <h3>No existe el producto</h3>\n  </ion-row>\n\n</ion-grid>"
 
 /***/ }),
 
@@ -175,9 +175,11 @@ var ViewComponent = /** @class */ (function () {
     function ViewComponent(ActivatedRoute, ProductService) {
         this.ActivatedRoute = ActivatedRoute;
         this.ProductService = ProductService;
+        this.product_exist = false;
         this.product_id = '';
         this.product_name = '';
-        this.product_exist = false;
+        this.brand_name = '';
+        this.category_name = '';
     }
     ViewComponent.prototype.ngOnInit = function () {
         this.loadProduct(this.ActivatedRoute.snapshot.paramMap.get('product_id'));
@@ -188,7 +190,10 @@ var ViewComponent = /** @class */ (function () {
             .subscribe(function (res) {
             if (res.length > 0) {
                 _this.product_exist = true;
-                _this.setData(res[0].product_id, res[0].name);
+                _this.product_id = res[0].product_id;
+                _this.product_name = res[0].product_name;
+                _this.brand_name = res[0].brand_name;
+                _this.category_name = res[0].category_name;
             }
             else {
                 _this.product_exist = false;

@@ -56,7 +56,7 @@ var ProfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-item>\n    <ion-avatar>\n      <img src=\"{{userPicture}}\">\n    </ion-avatar>\n    <ion-label>{{userName}}</ion-label>\n  </ion-item>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Historial de pagos</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Métodos de pago</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Configuración</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Invita a tus amigos</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Ayuda</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label (click)=\"doFbLogout()\">Cerrar sesión</ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>\n\n\n\n"
+module.exports = "<ion-header>\n  <ion-item>\n    <ion-avatar>\n      <img src=\"{{userPicture}}\" class=\"profile\">\n    </ion-avatar>\n    <ion-label>{{userName}}</ion-label>\n  </ion-item>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Historial de pagos</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Métodos de pago</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Configuración</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Invita a tus amigos</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label>Ayuda</ion-label>\n    </ion-item>\n    <ion-item>\n      <ion-label (click)=\"doFbLogout()\">Cerrar sesión</ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>\n\n\n\n"
 
 /***/ }),
 
@@ -67,7 +67,7 @@ module.exports = "<ion-header>\n  <ion-item>\n    <ion-avatar>\n      <img src=\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2ZpbGUvcHJvZmlsZS5wYWdlLnNjc3MifQ== */"
+module.exports = ".profile {\n  margin-right: -20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jZXNhcmhlcm5hbmRlenJvY2hhL1NpdGVzL0x1Y2t5LVBvY2tldC9zcmMvYXBwL3Byb2ZpbGUvcHJvZmlsZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDSSxtQkFBbUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3Byb2ZpbGUvcHJvZmlsZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5wcm9maWxle1xuICAgIG1hcmdpbi1yaWdodDogLTIwcHg7XG59XG4iXX0= */"
 
 /***/ }),
 
