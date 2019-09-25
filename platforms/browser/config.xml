@@ -3,7 +3,7 @@
     <name>MyApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.8.29:8100" />
+    <content original-src="index.html" src="http://192.168.1.75:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -11,7 +11,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="http://192.168.8.29:8100" sessionid="dfbd91ac" />
+    <allow-navigation href="http://192.168.1.75:8100" sessionid="6bd9fea1" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />

@@ -1,17 +1,17 @@
 <ion-content>
-  <ion-grid class="p25">
+  <ion-grid class="p25 roulette">
     <ion-col>
 
     </ion-col>
   </ion-grid>
 
-  <ion-grid  class="grid" id="grid">
+  <ion-grid class="grid" id="grid">
     <ion-row>
       <ion-col *ngFor="let item of items" col-6 no-padding>
         <ion-card class="productCard">
           <img src="../../../assets/products/{{item.product_id}}/1.jpg">
           <ion-card-content>
-            <a class="productBtn" routerLink="/product/{{item.product_id}}">
+            <a class="cardLink" routerLink="/product/{{item.product_id}}">
               {{item.product_name}}
             </a>
             <ion-card-subtitle>
@@ -21,10 +21,6 @@
           </ion-card>
       </ion-col>
     </ion-row>
-
-
-
-    
   </ion-grid>
 
 
