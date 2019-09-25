@@ -8,19 +8,21 @@
 
 <ion-content>
   <ion-searchbar id="keyword" placeholder="Buscar" (keyup)="searchProduct($event.target.value)"></ion-searchbar>
-  <ion-grid *ngIf="showCategories">
-    <ion-row>
-      <ion-col class="ion-text-center">Celulares</ion-col>
-      <ion-col class="ion-text-center">Juegos</ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-text-center">Hogar</ion-col>
-      <ion-col class="ion-text-center">Ropa</ion-col>
-    </ion-row>
-
-  </ion-grid>
-
+  
+  <ion-content *ngIf="showCategories">
+    <ion-grid class="grid" id="grid">
+      <ion-row>
+        <ion-col *ngFor="let cats of categoriesList" col-6 no-padding>
+          <ion-card class="catCard">
+            <ion-card-content class="ion-text-center">
+              <h2>{{cats.name}}</h2>
+            </ion-card-content>            
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
   <ion-content *ngIf="showGrid">
     <ion-grid class="grid" id="grid">
       <ion-row>

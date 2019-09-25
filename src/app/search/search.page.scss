@@ -3,15 +3,18 @@
     --background-activated: transparent !important;
 }
 
-.productCard{
-    width: 165px;
-    height: 225px;
-    --border-radius: 0px;
-}
+
 .p25{
     height: 25% !important;
 }
 
 ion-card{
     margin: 5px !important;
+}
+
+.catCard{
+    width: 165px;
+    height: 165px;
+    --border-radius: 0px;
+    vertical-align: middle;
 }

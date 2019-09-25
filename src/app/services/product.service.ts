@@ -9,6 +9,10 @@ export class ProductService {
 
   constructor(public http: HttpClient) { }
 
+  getCategories(): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/getCategories`);
+  }
+
   getProducts(): Observable<any> {
     return this.http.get(`http://localhost:3000/api/getProducts`);
   }

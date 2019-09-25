@@ -10,12 +10,28 @@ export class SearchPage {
 
   constructor(private ProductService: ProductService){}
   
-  showCategories: boolean = true;
+  showCategories: boolean = false;
   showGrid: boolean = false;
   showNone: boolean = false;
   items: any;
+  categoriesList: any;
 
   ngOnInit() {
+    this.getCategories();
+    console.log(this.categoriesList);
+  }
+
+  getCategories(){
+    this.categoriesList = null;
+    this.ProductService.getCategories()
+      .subscribe(
+        res => {
+          this.categoriesList = res;
+          this.showCategories = true;
+      },
+      error =>{
+        console.log(error);
+      });
   }
 
   searchProduct(keyword){
